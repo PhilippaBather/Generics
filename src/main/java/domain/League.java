@@ -8,36 +8,41 @@ import java.util.Collections;
  * Class should allow teams to be added to the list and
  * store a list of teams belonging to the league.
  */
-public class Competition<T extends Tier> {
+public class League<T extends Team> {
 
     private final String title;
-    private final ArrayList<T> teams = new ArrayList<>();
+    private final ArrayList<T> league = new ArrayList<>();
 
-    public Competition(String title) {
+    public League(String title) {
         this.title = title;
     }
 
     /**
-     * Add team to the teams ArrayList.
-     * @param team
-     * @return
+     * Add team to the teams ArrayList unless already present.
+     * @param team to be added to league
+     * @return boolean
      */
     public boolean addTeam(T team) {
-        if (teams.contains(team)) {
+        if (league.contains(team)) {
             System.out.println(team.getName() + " already in " + team.getClass());
         } else {
-            teams.add(team);
+            league.add(team);
             return true;
         }
         return false;
     }
 
+    /**
+     * Sort ArrayList in descending order of rankings and print to console.
+     */
     public void sort() {
-        Collections.sort(teams);
+        Collections.sort(league);
         System.out.println("***\t\t\t " + this.title + " Rankings \t\t\t***");
         for (T team:
-             teams) {
+                league) {
             System.out.println(team.getName() + ": " + team.ranking());
         }
     }
+
+
 }

@@ -6,28 +6,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Premiership astonVilla = new Premiership("Aston Villa F.C.");
-        Premiership brighton = new Premiership("Brighton and Hove Albion");
-        Premiership brentford = new Premiership("Brentford F.C.");
-        Premiership everton = new Premiership("Everton F.C.");
-        LeagueOne pompey = new LeagueOne("Portsmouth F.C.");
+        Team<Premiership> astonVilla = new Premiership("Aston Villa");
+        Team<Premiership> brentford = new Premiership("Brentford F.C.");
+        Team<Premiership> brighton = new Premiership("Brighton and Hove Albion");
+        Team<Premiership> everton = new Premiership("Everton F.C.");
+        Team<LeagueOne> pompey = new LeagueOne("Portsmouth F.C.");
+        Team<LeagueOne> cambridge = new LeagueOne("Cambridge United");
 
-        brentford.addResult(astonVilla, 2, 1);      // brentford 3; aston 0
-        brighton.addResult(brentford, 1, 2);        // brighton: 0; brentford 3
-        everton.addResult(brighton, 2, 3);          // brighton: 3; everton 0
-        brentford.addResult(brighton, 2, 2);        // brentford 1; brighton 1
-        everton.addResult(astonVilla, 2, 1);
+        League<Team<Premiership>> premiership = new League<>("Premiership");
+        League<Team<LeagueOne>> leagueOne = new League<>("League One");
 
-        Competition<Premiership> premiership = new Competition<>("Premiership");
-        Competition<LeagueOne> leagueOne = new Competition<>("League One");
+        brighton.addResult(brentford, 5, 4);
+        pompey.addResult(cambridge, 0, 0);
 
+        premiership.addTeam(astonVilla);
         premiership.addTeam(brighton);
         premiership.addTeam(brentford);
-        premiership.addTeam(astonVilla);
         premiership.addTeam(everton);
-        leagueOne.addTeam(pompey);
-
+        // premiership.addTeam(pompey);     // doesn't work as expected; wrong type (LeagueOne not Premiership)
         premiership.sort();
 
+        leagueOne.addTeam(pompey);
+        leagueOne.addTeam(cambridge);
+        leagueOne.sort();
     }
 }
