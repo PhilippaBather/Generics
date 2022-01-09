@@ -6,12 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Team<Premiership> astonVilla = new Premiership("Aston Villa");
-        Team<Premiership> brentford = new Premiership("Brentford F.C.");
-        Team<Premiership> brighton = new Premiership("Brighton and Hove Albion");
-        Team<Premiership> everton = new Premiership("Everton F.C.");
-        Team<LeagueOne> pompey = new LeagueOne("Portsmouth F.C.");
-        Team<LeagueOne> cambridge = new LeagueOne("Cambridge United");
+        Team<Premiership> astonVilla = new Team<>("Aston Villa");
+        Team<Premiership> brentford = new Team<>("Brentford F.C.");
+        Team<Premiership> brighton = new Team<>("Brighton and Hove Albion");
+        Team<Premiership> everton = new Team<>("Everton F.C.");
+        Team<LeagueOne> pompey = new Team<>("Portsmouth F.C.");
+        Team<LeagueOne> cambridge = new Team<>("Cambridge United");
 
         League<Team<Premiership>> premiership = new League<>("Premiership");
         League<Team<LeagueOne>> leagueOne = new League<>("League One");

@@ -36,7 +36,7 @@ public class Team<T extends Tier> implements Comparable<Team<T>>  {
      * @param teamScore number of points/goals
      * @param opponentScore number of points/goals
      */
-    public void addResult(Team opponent, int teamScore, int opponentScore) {
+    public void addResult(Team<T> opponent, int teamScore, int opponentScore) {
         if (teamScore > opponentScore) {
             won++;
         } else if (teamScore == opponentScore) {
@@ -54,7 +54,7 @@ public class Team<T extends Tier> implements Comparable<Team<T>>  {
 
     /**
      * Returns a team object's ranking dependent on the supplied algorithm.
-     * @return
+     * @return int number of points
      */
     public int ranking() {
         return (this.getWin() * 3) + this.getDraw();
